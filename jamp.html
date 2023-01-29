@@ -1,0 +1,61 @@
+<html>
+  <head>
+
+    <title>Jamp</title>
+    <style>
+      #box {
+        width: 400px;
+        height: 400px;
+        border: solid 1px #000000;
+        margin: 20px 20px;
+        background-image: url('https://pbs.twimg.com/media/FgXqSZlUAAMEShQ?format=jpg&name=medium');
+        background-size: contain;
+        position:absolute;
+      }
+      .img {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        border-radius: 50%;
+        top: 25px;
+        left: 30px;
+      }
+    </style>
+    <script>
+      var x = 50;
+      var y = 50;
+      var addx = 3;
+      var addy = 0;
+      function move(){
+        var elm = document.getElementById("hisaju");
+        x += addx;
+        y += addy;
+        if (x >= 360){
+					x = 360;
+					addx = -addx;
+				}
+        if (x < 50){
+          x = 50;
+          addx = -addx;
+        }
+        if (y >= 300){
+          y = 300;
+          addy = -addy; //符号反転（例addyが+10なら−10になる）
+        }
+        else {
+              addy += 1;
+        }
+        elm.style.left = x;
+        elm.style.top = y;
+        setTimeout(move, 50);
+        }
+
+    </script>
+  </head>
+  <body>
+    <button onclick="move();">start</button>
+    <div id="box">
+      <img src="https://pbs.twimg.com/profile_images/1326716175175147526/uM7aGegN_400x400.jpg" class="img" id="hisaju">
+    </div>
+  </body>
+</html>

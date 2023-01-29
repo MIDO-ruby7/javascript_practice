@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>縦横無尽</title>
+    <style>
+      #box {
+        width: 800px;
+        height: 500px;
+        border: solid 1px #000000;
+        margin: 10px auto;
+        background-image: url('hand.png');
+        background-size: 870px;
+      }
+      .img1 {
+        width: 120px;
+        height: 100px;
+        position: relative;
+        top: 200px;
+        left: 0px;
+      }
+      .img2 {
+        width: 120px;
+        height: 100px;
+        position: relative;
+        top: 200px;
+        left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <img src="https://pbs.twimg.com/profile_images/1326716175175147526/uM7aGegN_400x400.jpg" class="img1" id="hisaju">
+      <!--img src="https://pbs.twimg.com/profile_images/1326716175175147526/uM7aGegN_400x400.jpg" class="img2" id="img2" -->
+    </div>
+    <script>
+      var move = 5;
+      var left = 0;
+      function moveHisaju () {
+        var hisaju = document.getElementById('hisaju');
+        var right = parseInt(hisaju.style.left) + parseInt(hisaju.width);
+        if (right > 800){
+          move = -5;
+        }
+        if (left < 0){
+          move = 5;
+        }
+        left = left + move;
+        console.log(left);
+        hisaju.style.left = left + 'px';
+      }
+     
+      hisaju.onclick = function(event) {
+        setInterval(moveHisaju, 10);
+      }
+
+      document.onkeydown = function(event){
+        console.log(event.key);
+        if(event.key == 'ArrowLeft'){
+          move = -5;
+        }
+        if(event.key == 'Arrowtop'){
+          move = -5;
+        }
+      }
+    </script>
+  </body>
+</html>
